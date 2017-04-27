@@ -1,0 +1,46 @@
+<script src="../vue.js"></script>
+
+<div id="exercise">
+  <!-- 1) Hook up the button to toggle the display of the two paragraphs.
+  Use both v-if and v-show and inspect the elements to see the difference -->
+  <h3>Used an onlick event in the button to change a
+    toglle variable which i'll be using to check wether or not to v-if
+    and v-show paragraphs</h3>
+  <div>
+    <button  v-on:click="toggleP = !toggleP">Toggle</button>
+    <p v-if="toggleP">You either see me ...</p>
+    <p v-if="toggleP">...or me</p>
+    <p v-show="toggleP">You either see me ...</p>
+    <p v-show="toggleP">...or me</p>
+  </div>
+  <!-- 2) Output an <ul> of array elements of your choice.
+  Also print the index of each element. -->
+  <h3>Used a simple v-for to iterate over array elements, with its indexes</h3>
+  <ul v-for="(name, index) in array">
+    <li>{{ name }} ({{ index }})</li>
+  </ul>
+  <!-- 3) Print all key-value pairs of the following object:
+  {title: 'Lord of the Rings', author: 'J.R.R. Tolkiens', books: '3'}. Also print the index of each item. -->
+  <h3>Same as above but added a one more argument to show object keys</h3>
+  <ul v-for="(obj, key, index) in myObject">
+    <li>{{ key }} : {{ obj }} ({{ index }}) </li>
+  </ul>
+  <!-- 4) Print the following object (only the values) and also create
+  a nested loop for the array: {name: 'TESTOBJECT', data: [1.67, 1.33, 0.98, 2.21]}
+   (hint: use v-for and v-if to achieve this) -->
+   <h3>I created a v-for to iterate over testData and a nested v-for to show
+     array elements only if iterated value is an array </h3>
+  <ul>
+    <li v-for="obj in testData">
+
+      <template v-if="Array.isArray(obj)">
+        <div v-for="data in obj">{{ data }}</div>
+      </template>
+
+      <template v-else> {{ obj }} </template>
+
+    </li>
+
+  </ul>
+</div>
+<script src="app.js" charset="utf-8"></script>

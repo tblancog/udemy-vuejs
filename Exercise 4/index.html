@@ -1,0 +1,59 @@
+<link rel="stylesheet" href="styles.css">
+<script src="../vue.js"></script>
+
+<div id="exercise">
+  <!-- 1) Start the Effect with the Button.
+  The Effect should alternate the "highlight" or "shrink"
+  class on each new setInterval tick
+  (attach respective class to the div with id "effect" below) -->
+  <h3>1) Start the Effect with the Button.
+  The Effect should alternate the "highlight" or "shrink"
+  class on each new setInterval tick
+  (attach respective class to the div with id "effect" below)</h3>
+  <div>
+    <button @click="startEffect">Start Effect</button>
+    <div id="effect" v-bind:class="effects"></div>
+  </div>
+  <!-- 2) Create a couple of CSS classes and attach them via the array syntax -->
+  <h3>2) Create a couple of CSS classes and attach them via the array syntax</h3>
+  <div :class="[circle, 'red']">I got no class :(</div>
+  <!-- 3) Let the user enter a class (create some example classes) and attach it -->
+  <h3>3) Let the user enter a class (create some example classes) and attach it</h3>
+  <div>
+    <input type="text" placeholder="square | triangle | circle" v-model="shape">
+    <div :class="shape"></div>
+  </div>
+  <!-- 4) Let the user enter a class and enter true/ false for another class
+      (create some example classes) and attach the classes -->
+  <h3>4) Let the user enter a class and enter true/ false for another class
+     (create some example classes) and attach the classes</h3>
+  <div>
+    <h4>will apply classes separated by spaces</h4>
+    <input type="text" placeholder="try: triangle rounded red" v-model="userClass">
+    <h4>will set class rounded if true or truly value</h4>
+    <input type="text"v-model="roundMe">
+    <div :class="[ userClass, { rounded: roundMe } ]"></div>
+  </div>
+  <!-- 5) Repeat 3) but now with values for styles (instead of class names).
+      Attach the respective styles.  -->
+  <h3>5) Repeat 3) but now with values for styles (instead of class names).
+    Attach the respective styles.</h3>
+  <div>
+    <h3>This will modify float style, default: left, try right</h3>
+    <input type="text" v-model="userStyle.float">
+    <div class="circle" v-bind:style="userStyle"></div>
+  </div>
+  <!-- 6) Create a simple progress bar with setInterval and style bindings.
+  Start it by hitting the below button. -->
+  <div>
+    <h3>This will start a green progressbar, I fire a setInterval method,
+      each 30 milisecons will add 1px to the width, it will stop when it reaches 100px.
+      Challenge I faced but couldn't get it:
+      Try make a computed field for progress property which returns the progress value width
+      percent %
+    </h3>
+    <button v-on:click="startProgress">Start Progress</button>
+    <div :style="progressBarStyle"></div><span>{{ progress }}</span>
+  </div>
+</div>
+<script src="app.js" charset="utf-8"></script>

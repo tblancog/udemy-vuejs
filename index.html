@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Start Vuejs</title>
+  <script src="vue.js"></script>
+</head>
+<body>
+  <div id="app" v-on:mousemove="updateCoordinates">
+    <h1 v-once>{{ title }}</h1>
+    <input type="text" v-on:input="changeLink()">
+    <p><a :href="link">Google</a></p>
+    <p v-html="finishedlink"></p>
+      <button @click="increase(2, $event)">Increase</button>
+      <p>
+        {{ count }}
+      </p>
+      <p>
+        Coordinates X: {{ x }} Y: {{ y }}
+        <span v-on:mousemove.stop="">DEAD SPOT</span>
+      </p>
+      <input type="text" v-on:keyup.enter.space="alertMe" />
+  </div>
+  <script type="text/javascript">
+  new Vue(
+    {
+      el: '#app',
+      data: {
+        title: "Hello World",
+        link: "http://www.google.com",
+        finishedlink: "<a href='http://www.google.com'>Google</a>",
+        count: 0,
+        x: 0,
+        y: 0
+      },
+      methods: {
+        sayHello: function(event){
+          return this.title
+        },
+        changeLink: function(event){
+          return this.title = event.target.value
+        },
+        increase: function(step, event){
+          this.count += step
+        },
+        updateCoordinates: function(event) {
+          this.x = event.clientX;
+          this.y = event.clientY;
+        },
+        alertMe: function(){
+          alert("Alert")
+        }
+      }
+    }
+  )
+  </script>
+</body>
+</html>

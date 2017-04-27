@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <script src="../vue.js"></script>
+  <title>Document</title>
+</head>
+<body>
+  <div id="exercise">
+      <!-- 1) Show a "result" of 'not there yet' as long as "value" is not equal to 37 - you can change "value" with the buttons. Print 'done' once you did it -->
+      <h3>1) Show a "result" of 'not there yet' as long as "value" is not equal to 37
+        - you can change "value" with the buttons. Print 'done' once you did it</h3>
+      <p>I computed the property result with a callback function that checks the
+        value if it's not equal to 37, print "Not yet" else "Done"</p>
+      <div>
+          <p>Current Value: {‌{ value }}</p>
+          <button @click="value += 5">Add 5</button>
+          <button @click="value += 1">Add 1</button>
+          <p>{‌{ result }}</p>
+      </div>
+      <!-- 2) Watch for changes in the "result" and reset the "value" after 5 seconds (hint: setTimeout(..., 5000) -->
+      <h3>2) Watch for changes in the "result" and reset the "value"
+        after 5 seconds (hint: setTimeout(..., 5000)</h3>
+        <p>Watched result property and setTimeout for each 5000 miliseconds to set the value
+          property to 0, but before doing so I had to assign the actual context (this) to a var vm
+          so I could change value attribute. I wasn't clear enough on how to do this, any feedback
+          would be greatly appreciated.
+        </p>
+      <div>
+          <input type="text">
+          <p>{‌{ value }}</p>
+      </div>
+  </div>
+  <script src="app.js"></script>
+</body>
+</html>
